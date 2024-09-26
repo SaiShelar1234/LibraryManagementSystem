@@ -6,12 +6,44 @@ public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Library myLibrary = new Library();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Add some books to the library
+        Book firstBook = new Book("978-0134685991", "Effective Java", "Joshua Bloch", 2017);
+        Book secondBook = new Book("978-0596009205", "Head First Java", "Kathy Sierra", 2005);
+        Book thirdBook = new Book("978-0132350884", "Clean Code", "Robert C. Martin", 2008);
+
+        myLibrary.addBook(firstBook);
+        myLibrary.addBook(secondBook);
+        myLibrary.addBook(thirdBook);
+
+        // Print available books
+        myLibrary.printAvailableBooks();
+
+        try {
+            // Check if a book is available and issue it
+            myLibrary.issueBook("978-0134685991"); // Issue "Effective Java"
+            myLibrary.issueBook("978-0596009205"); // Issue "Head First Java"
+
+            // Attempt to issue a book that is already issued
+            myLibrary.issueBook("978-0596009205"); // Will throw "Book is Not Available" error
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+
+        // Print available books after issuing
+        myLibrary.printAvailableBooks();
+
+        try {
+            // Return a book and print the available books again
+            myLibrary.returnBook("978-0134685991"); // Return "Effective Java"
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Print available books after return
+        myLibrary.printAvailableBooks();
     }
+
 }
