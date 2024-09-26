@@ -63,4 +63,12 @@ class BookTest {
         });
         assertEquals("Book with ISBN 978-1111111111 does not exist in the library.", exception.getMessage());
     }
+
+    // Test case to check returning a book
+    @Test
+    public void testReturnBook() throws Exception {
+        myLibrary.issueBook("978-0134685991");
+        myLibrary.returnBook("978-0134685991");
+        assertTrue(firstBook.isAvailable(), "Effective Java should be marked as available after returning.");
+    }
 }
