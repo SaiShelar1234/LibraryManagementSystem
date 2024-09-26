@@ -44,4 +44,14 @@ class BookTest {
         myLibrary.issueBook("978-0134685991");
         assertFalse(firstBook.isAvailable(), "Effective Java should be marked as unavailable after issuing.");
     }
+
+    // Test case to check issuing a book that is already issued
+    @Test
+    public void testIssueAlreadyIssuedBook() throws Exception {
+        myLibrary.issueBook("978-0134685991");
+        Exception exception = assertThrows(Exception.class, () -> {
+            myLibrary.issueBook("978-0134685991");
+        });
+        assertEquals("Book is Not Available", exception.getMessage());
+    }
 }
