@@ -1,66 +1,67 @@
 package org.example;
 
 // Class representing a Publication with attributes code, name, writer, and yearOfPublication
+// Class representing a Book with attributes ISBN, title, author, and publication year
 public class Book {
-    private String code;
-    private String name;
-    private String writer;
-    private int yearOfPublication;
-    private boolean isInStock;
+    private String ISBN;
+    private String title;
+    private String author;
+    private int publicationYear;
+    private boolean isAvailable;
 
-    // Constructor to initialize Publication object
-    public Book(String code, String name, String writer, int yearOfPublication) {
-        this.code = code;
-        this.name = name;
-        this.writer = writer;
-        this.yearOfPublication = yearOfPublication;
-        this.isInStock = true;  // Publications are in stock by default when added
+    // Constructor to initialize Book object
+    public Book(String ISBN, String title, String author, int publicationYear) {
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+        this.isAvailable = true;  // Books are available by default when added
     }
 
-    // Getters and setters for publication attributes
-    public String getCode() {
-        return code;
+    // Getters and setters for book attributes
+    public String getISBN() {
+        return ISBN;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getWriter() {
-        return writer;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setWriter(String writer) {
-        this.writer = writer;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public int getYearOfPublication() {
-        return yearOfPublication;
+    public int getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setYearOfPublication(int yearOfPublication) {
-        this.yearOfPublication = yearOfPublication;
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
-    public boolean isInStock() {
-        return isInStock;
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
-    public void setInStock(boolean inStock) {
-        isInStock = inStock;
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
-    // Method to display publication details
+    // Method to display book details
     @Override
     public String toString() {
-        return "Publication [code=" + code + ", name=" + name + ", writer=" + writer + ", yearOfPublication=" + yearOfPublication + "]";
+        return "Book [ISBN=" + ISBN + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + "]";
     }
 }
